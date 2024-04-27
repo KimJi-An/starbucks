@@ -46,3 +46,14 @@ window.addEventListener('scroll', _.throttle(function() {
     });
   }
 }, 300));
+
+const fadeEls = document.querySelectorAll('.visual .fade-in');
+
+// 반복 처리
+fadeEls.forEach(function(fadeEl, index) {
+  // gsap.to(요소, 지속시간, 옵션);
+  gsap.to(fadeEl, 1, {
+    delay: (index + 1) * .7, // 첫 번째 index가 0이기 때문에 1 더해줌
+    opacity: 1
+  });
+});
