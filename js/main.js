@@ -24,3 +24,25 @@ searchInputEl.addEventListener('blur', function() {
   // 빈 문자 할당
   searchInputEl.setAttribute('placeholder', '');
 });
+
+const badgeEl = document.querySelector('header .badges');
+
+// _.throttle(함수, 시간)
+// 화면이 스크롤될 때 실행되는 함수의 개수를 throttle이라는 메소드를 이용해 일정 시간에 한 번씩만 실행되도록 제한
+window.addEventListener('scroll', _.throttle(function() {
+  console.log(window.scrollY);
+  if(window.scrollY > 500) {
+    // 배지 숨기기
+    // gsap.to(요소, 지속시간, 옵션);
+    gsap.to(badgeEl, .6, {
+      opacity: 0,
+      display: 'none'
+    });
+  } else {
+    // 배지 보이기
+    gsap.to(badgeEl, .6, {
+      opacity: 1,
+      display: 'block'
+    });
+  }
+}, 300));
