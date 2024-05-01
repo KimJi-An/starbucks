@@ -146,3 +146,7 @@ spyEls.forEach(function (spyEl) {
     .setClassToggle(spyEl, 'show')
     .addTo(new ScrollMagic.Controller());  // Scene() : ScrollMagic을 통해 특정 요소를 감시하는 옵션을 지정 
 });
+
+const thisYear = document.querySelector('.this-year');
+// 요소가 가지고 있는 글자 내용을 알아내거나 값 지정 가능
+thisYear.textContent = new Date().getFullYear();  // 올해
